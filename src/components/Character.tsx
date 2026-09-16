@@ -6,14 +6,14 @@ type CharacterProps = {
   progress?: number;
 };
 
+const modelPath = `${import.meta.env.BASE_URL}models/ganza.glb`;
+
 export default function Character({
   progress = 0,
 }: CharacterProps) {
   const group = useRef<Group>(null);
 
-  const { scene, animations } = useGLTF(
-    "/models/gta-character.glb"
-  );
+  const { scene, animations } = useGLTF(modelPath);
 
   const { actions } = useAnimations(animations, group);
 
@@ -39,8 +39,7 @@ export default function Character({
 
     if (!action) return;
 
-    action.time =
-      progress * action.getClip().duration;
+    action.time = progress * action.getClip().duration;
   }, [progress, actions]);
 
   return (
@@ -54,4 +53,4 @@ export default function Character({
   );
 }
 
-useGLTF.preload("/models/gta-character.glb");
+useGLTF.preload(modelPath);
