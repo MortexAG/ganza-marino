@@ -1,0 +1,8 @@
+export interface Section{
+    id: string;
+    name: string;
+    title: string;
+    description: string;
+
+};
+
