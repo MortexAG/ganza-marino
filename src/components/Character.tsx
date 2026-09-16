@@ -6,7 +6,7 @@ type CharacterProps = {
   progress?: number;
 };
 
-const modelPath = `${import.meta.env.BASE_URL}models/gta-character.glb`;
+const modelPath = `${import.meta.env.BASE_URL}models/ganza.glb`;
 
 export default function Character({
   progress = 0,
